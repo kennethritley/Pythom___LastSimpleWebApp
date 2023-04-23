@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Caty Elder Page</title>
+</head>
+<body>
+    <h1>Welcome to the Cat Page</h1>
+    <button id="getCatName">Get Cat Name</button>
+    <p id="catName">---</p>
+
+    <h2>Set Cat Name</h2>
+    <input type="text" id="newCatName" placeholder="Enter new cat name">
+    <button id="setCatName">Set Cat Name</button>
+
+    <script>
+        document.getElementById('getCatName').addEventListener('click', async function() {
+            try {
+                const response = await fetch('/cat');
+                const catName = await response.text();
+                document.getElementById('catName').innerText = catName;
+            } catch (error) {
+                console.error('Error fetching cat name:', error);
+            }
+        });
+
+        document.getElementById('setCatName').addEventListener('click', async function() {
+            try {
+                const newCatName = document.getElementById('newCatName').value;
+                const response = await fetch('/cat', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({name: newCatName})
+                });
+                if (response.ok) {
+                    alert('Cat name updated!');
+                } else {
+                    alert('Error updating cat name.');
+                }
+            } catch (error) {
+                console.error('Error updating cat name:', error);
+            }
+        });
+    </script>
+</body>
+</html>
