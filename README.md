@@ -25,6 +25,7 @@ listens to localhost:5000.  It should accept:
 
 - http://127.0.0.1:5000 - Hello World
 - http://127.0.0.1:5000/cat - Display the cat's name
+- http://127.0.0.1:5000/cat_page - HTML page for changing cat's name and CSS
 - curl -X POST -F "name=Whiskers" http://127.0.0.1:5000/cat - To change the cat's name
 
 
