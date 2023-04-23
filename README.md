@@ -23,9 +23,9 @@ For a detailed list of changes and version history, please refer to the [CHANGEL
 No installation necessary. When the app runs it starts the Flask server that
 listens to localhost:5000.  It should accept:
 
-http://127.0.0.1:5000 - Hello World
-http://127.0.0.1:5000/cat - Display the cat's name
-curl -X POST -F "name=Whiskers" http://127.0.0.1:5000/cat - To change the cat's name
+- http://127.0.0.1:5000 - Hello World
+- http://127.0.0.1:5000/cat - Display the cat's name
+- curl -X POST -F "name=Whiskers" http://127.0.0.1:5000/cat - To change the cat's name
 
 
 ## Authors
